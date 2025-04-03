@@ -3,6 +3,6 @@ s = input()
 
 sum = 0
 
-for i in s:
-    sum += int(i)   
+for i in range(n):
+    sum += int(s[i])
 print(sum)
