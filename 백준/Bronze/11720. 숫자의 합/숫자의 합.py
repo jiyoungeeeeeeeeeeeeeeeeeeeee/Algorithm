@@ -1,8 +1,6 @@
 n = int(input())
-s = input()
+num = list(map(int,input()))
 
-sum = 0
+total = sum(num[0:])
 
-for i in range(n):
-    sum += int(s[i])
-print(sum)
+print(total)
