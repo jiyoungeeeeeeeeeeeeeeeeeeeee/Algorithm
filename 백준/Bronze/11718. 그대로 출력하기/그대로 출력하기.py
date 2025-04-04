@@ -1,7 +1,5 @@
 import sys
+s = sys.stdin.readlines()
 
-input = sys.stdin.read
-data = input().splitlines()
-
-for line in data:
-    print(line)
+for i in s:
+    print(i.rstrip())
