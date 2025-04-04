@@ -1,6 +1,7 @@
-while True:
-    try:
-        s = input()
-        print(s)
-    except EOFError:
-        break 
+import sys
+
+input = sys.stdin.read
+data = input().splitlines()
+
+for line in data:
+    print(line)
