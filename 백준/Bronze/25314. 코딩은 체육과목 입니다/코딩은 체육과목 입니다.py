@@ -1,5 +1,5 @@
 N = int(input())
 
-print("long " * (N//4) + "int")
-    
-        
+for i in range(N//4):
+    print('long' , end = ' ')
+print('int')
