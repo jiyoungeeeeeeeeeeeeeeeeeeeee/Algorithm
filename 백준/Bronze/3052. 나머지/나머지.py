@@ -1,6 +1,13 @@
-nums = {int(input()) for _ in range(10)}
-quotient = set()
+nums = [int(input()) for _ in range(10)]
+quotient = []
 
 for i in nums:
-    quotient.add(i%42)
+    qutt = i%42
+
+    if qutt not in quotient:
+        quotient.append(qutt)  
+        
 print(len(quotient))
+
+
+  
