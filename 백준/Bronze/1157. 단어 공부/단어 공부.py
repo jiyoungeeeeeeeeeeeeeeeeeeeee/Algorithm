@@ -1,17 +1,19 @@
-s = input().lower() # 모두 소문자로 바꿔주기
-cnt_index = {}
+s = input().upper()
+s_list = list(set(s))       # 중복 제거해서 한 번씩만 확인
+s_cnt_list = []
 
-for i in range(len(s)):
-    index = ord(s[i]) - ord('a')
-    if index in cnt_index:
-        cnt_index[index] += 1
-    else : 
-        cnt_index[index] = 1
+for i in s_list:
+    s_cnt = s.count(i)      # 중복 제거한 값(s_list) 말고 원래 값 count
+    # print(s_cnt)          # 알파벳 빈도 수 count한 배열
+    s_cnt_list.append(s_cnt)
 
-max_count = max(cnt_index.values())
-most_count = [k for k,v in cnt_index.items() if v == max_count]
+# print(s_cnt_list)
+max_value = max(s_cnt_list)   # 최댓값 출력
+# print(max_value)            
 
-if len(most_count) >=2:
+#print(s_cnt_list.count(max_value))
+if s_cnt_list.count(max_value) > 1:
     print('?')
 else :
-    print(chr(most_count[0] + ord('A')))
+    max_index = s_cnt_list.index(max_value)   # 빈도 수 list에서 최댓값 인덱스를 찾은 후 반환
+    print(s_list[max_index])                  # 
