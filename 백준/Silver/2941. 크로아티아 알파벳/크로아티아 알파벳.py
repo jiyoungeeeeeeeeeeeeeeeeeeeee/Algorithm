@@ -1,8 +1,16 @@
-Croatia = input()
+s = input()
+i = 0
+cnt = 0
 
-list_Croatia = ['c=','c-','dz=','d-','lj','nj','s=','z=']
+while i < len(s):
+    if s[i:i+3] == 'dz=':
+        cnt += 1
+        i += 3
+    elif s[i:i+2] in ['c=', 'c-', 'd-', 'lj', 'nj', 's=', 'z=']:
+        cnt += 1
+        i += 2
+    else:
+        cnt += 1
+        i += 1
 
-for p in list_Croatia:
-    Croatia = Croatia.replace(p, '*')
-
-print(len(Croatia))
+print(cnt)
