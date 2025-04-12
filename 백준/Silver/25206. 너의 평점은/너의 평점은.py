@@ -1,52 +1,22 @@
+grade_dict = {
+    'A+': 4.5, 'A0': 4.0,
+    'B+': 3.5, 'B0': 3.0,
+    'C+': 2.5, 'C0': 2.0,
+    'D+': 1.5, 'D0': 1.0,
+    'F': 0.0
+}
+
 total = 0
-sum_rate = 0
+total_rate = 0
 
-for i in range(20):
-    sub,rate,grade = input().split()
-    # print(sub,rate,grade)
-    
+for _ in range(20):
+    subject,rate,grade = input().split()
     rate = float(rate)
-
-    if grade == 'A+':
-        total += rate*4.5
-        sum_rate += rate
-
-    if grade == 'A0':
-        total += rate*4.0
-        sum_rate += rate
-
-    if grade == 'B+':
-        total += rate*3.5
-        sum_rate += rate
-
-    if grade == 'B0':
-        total += rate*3.0
-        sum_rate += rate
-
-    if grade == 'C+':
-        total += rate*2.5
-        sum_rate += rate
-
-    if grade == 'C0':
-        total += rate*2.0
-        sum_rate += rate
-
-    if grade == 'D+':
-        total += rate*1.5
-        sum_rate += rate
-
-    if grade == 'D0':
-        total += rate*1.0
-        sum_rate += rate
-
-    if grade == 'F':
-        total += rate*0
-        sum_rate += rate
 
     if grade == 'P':
         continue
+    
+    total += rate*grade_dict[grade]
+    total_rate += rate
 
-print(total/sum_rate)
-
-        
-        
+print(total/total_rate)
