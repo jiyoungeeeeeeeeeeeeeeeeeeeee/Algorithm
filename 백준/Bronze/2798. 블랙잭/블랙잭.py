@@ -1,17 +1,12 @@
-N,M = map(int,input().split())
-arr = list(map(int,input().split()))
-result = 0
+n,m = map(int,input().split())
+cards = sorted(list(map(int,input().split())))
+max_sum = 0
 
+for i in range(n):
+    for j in range(i+1, n):
+        for k in range(j+1, n):
+            current_sum = cards[i] + cards[j] + cards[k]
+            if current_sum <= m:
+                max_sum = max(max_sum, current_sum)
 
-for i in range(N):
-  for j in range(i+1,N):
-    for k in range(j+1,N):
-      if arr[i] + arr[j] + arr[k] > M:
-        continue
-      else:
-        result = max(result, arr[i] + arr[j] + arr[k])
-
-print(result)
-  
-
-
+print(max_sum)
