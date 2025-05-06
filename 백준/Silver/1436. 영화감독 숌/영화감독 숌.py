@@ -1,13 +1,8 @@
 n = int(input())
-cnt = 0
-num = 666
+six = []
 
-while True:
-  if '666' in str(num):
-    cnt += 1
-    if cnt == n:
-      break
+for i in range(2666800):
+    if '666' in str(i): 
+        six.append(i)
 
-  num += 1
-  
-print(num)
+print(six[n - 1]) 
