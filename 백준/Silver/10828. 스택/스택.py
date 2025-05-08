@@ -1,10 +1,10 @@
-n = int(input())
+import sys
+n = int(sys.stdin.readline())
 
 stack = []
-commend = ['push' , 'pop' , 'size' ,'empty','top']
 
 for i in range(n):
-    com = input()
+    com = sys.stdin.readline()
 
     if 'push' in com:
         value = int(com.split()[1])
@@ -31,6 +31,3 @@ for i in range(n):
             print(stack[-1])
         if not stack:
             print(-1)
-
-
-    
