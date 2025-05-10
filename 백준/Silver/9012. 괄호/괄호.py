@@ -1,9 +1,8 @@
 T = int(input())
-# vps = [[input()] for _ in range(T)]
+vps_list = [input() for _ in range(T)]
 
 
-for _ in range(T):
-    vps = input()
+for vps in vps_list:
     stack = []
     is_valid = True
 
