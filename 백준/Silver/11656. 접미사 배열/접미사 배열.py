@@ -10,7 +10,8 @@ for s in range (len(S)-1):
     stack.append(s_dq.copy())
 
 result = [''.join(d) for d in stack]
-result.sort()
+sorted_result = sorted(result)
 
-for r in result:
+for r in sorted_result:
     print(r)
+
