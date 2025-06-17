@@ -1,15 +1,18 @@
 import sys
-parentheses = list(sys.stdin.readline().rstrip())
-result = 0
-stack = []
 
-for i in range(len(parentheses)):
-    if parentheses[i] == "(":
-        stack.append('(')
-    else: #parentheses[i] = ')'
+parentheses = sys.stdin.readline().strip()
+stack = []
+cnt = 0
+
+for p in range(len(parentheses)):
+    if parentheses[p] == "(":
+        stack.append(p)
+
+    else:
         stack.pop()
-        if parentheses[i-1] =='(': # 레이저
-            result += len(stack)
-        else:
-            result += 1
-print(result)
+        if parentheses[p-1] == "(" : # 레이저 
+            cnt += len(stack)
+        else: # 쇠막대기
+            cnt += 1
+print(cnt)
+    
