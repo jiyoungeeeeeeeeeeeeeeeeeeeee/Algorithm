@@ -1,15 +1,14 @@
-import sys
+from collections import deque
 
-n,k = map(int,sys.stdin.readline().strip().split())
-yo = []
-order_list = []
-index = 0
+n,k = map(int,input().split())
+people = [ i for i in range(1,n+1)]
+arrange = []
+dq = ()
+dq = deque(people)
+   
 
-for i in range(1,n+1):
-    yo.append(i)
-
-while yo:
-    index = (index + k-1) % len(yo)
-    order_list.append(yo.pop(index))
-
-print('<'+', '.join(map(str,order_list)) + '>')
+while dq:
+    dq.rotate(-k)    
+    arrange.append(dq.pop())
+    
+print("<"+ ", ".join(map(str,arrange))+">")
