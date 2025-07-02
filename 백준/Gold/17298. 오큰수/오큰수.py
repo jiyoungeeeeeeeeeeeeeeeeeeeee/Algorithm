@@ -1,13 +1,18 @@
+from collections import deque
 import sys
 
 n = int(sys.stdin.readline().strip())
-nge = list(map(int,sys.stdin.readline().split()))
+arr = list(map(int,sys.stdin.readline().strip().split()))
 stack = []
-result = [-1] * n # 오큰수를 못 찾으면 기본값 -1 넣어둠
+result = [-1] * n
 
 for i in range(n):
-    while stack and nge[stack[-1]] < nge[i]: 
-            result[stack.pop()] = nge[i]
+    while stack and arr[stack[-1]] < arr[i]:
+        result[stack.pop()] = arr[i]
     stack.append(i)
 
-print(*result)
+
+
+sys.stdout.write(' '.join(map(str, result)))
+
+        
