@@ -1,23 +1,23 @@
 n = int(input())
-RPN = input()
-nums = [int(input()) for _ in range(n)]
+rpn = input()
 stack = []
+num = [int(input()) for _ in range(n)]
 
-for token in RPN:
-    if token.isalpha(): # 피연산자 일 경우
-        index = ord(token)- ord("A")
-        stack.append(nums[index]) 
-    else: # 연산자일 경우
+for r in rpn:
+    if r.isalpha():
+        index = ord(r) - ord("A")
+        stack.append(num[index])
+    else:
         b = stack.pop()
         a = stack.pop()
 
-        if token == "+":
+        if r == "+":
             stack.append(a+b)
-        elif token == "*":
-            stack.append(a*b)
-        elif token == "/":
-            stack.append(a/b)
-        elif token == '-':
+        elif r == '-':
             stack.append(a-b)
+        elif r == '/':
+            stack.append(a/b)
+        elif r == '*':
+            stack.append(a*b)
 
 print(f"{stack[0]:.2f}")
