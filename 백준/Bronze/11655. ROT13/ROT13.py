@@ -1,22 +1,12 @@
-from collections import deque
 S = input()
-upper = deque([chr(c) for c in range(ord('A'),ord('Z')+1)])
-lower = deque([chr(c) for c in range(ord('a'),ord('z')+1)])
-
-upper.rotate(-13)
-lower.rotate(-13)
-
-result = ''
 
 for s in S:
-    if s.isupper(): # 문자열일 경우
-        idx = (ord(s) - ord('A'))
-        result += upper[idx]
-    elif s.islower():
-        idx = (ord(s) - ord('a'))
-        result += lower[idx]
-    else:
-        result += s
+    if s.isupper():
+        rot = chr((ord(s) - ord('A') + 13) % 26 + ord("A"))
+        print(rot ,end = '')
 
-print(result)
-        
+    elif s.islower():
+        rot = chr((ord(s) - ord('a') + 13) % 26 + ord("a"))
+        print(rot ,end = '')
+    else:
+        print(s , end = '')
