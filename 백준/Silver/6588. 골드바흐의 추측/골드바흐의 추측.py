@@ -1,23 +1,24 @@
 import sys
+import math
+input = sys.stdin.readline
 
-number = [True] * 1000001
-
-# 소수 list
-for i in range(2, int(len(number) ** 0.5) + 1):
+MAX = 1_000_000
+number = [False, False] + [True] * (MAX-1)
+for i in range(2, int(MAX**0.5) + 1):
     if number[i]:
-        for j in range(2 * i, 1000001, i):
-            number[j] = False
+        number[i*i : MAX+1 : i] = [False] * (((MAX - i*i)//i) + 1)
 
+primes = [i for i, is_p in enumerate(number) if is_p]
 
-while 1:
-    n = int(sys.stdin.readline())
-
+while True:
+    n = int(input())
     if n == 0:
         break
 
-    for i in range(n - 3, 2, -2):
-        if (number[i] == True) and (number[n - i] == True):
-            print(f"{n} = {n-i} + {i}")
+    for p in primes:
+        if p > n // 2:
+            print("Goldbach's conjecture is wrong.")
             break
-    else:
-        print('"Goldbach\'s conjecture is wrong."')
+        if number[n - p]:
+            print(f"{n} = {p} + {n-p}")
+            break
