@@ -3,12 +3,15 @@ two = deque(list(map(int,input())))
 
 while len(two)%3 != 0:
     two.insert(0,0)
+    
+result = []
 
 while two:
-    save = []
-    a = two.popleft()
-    b = two.popleft()
-    c = two.popleft()
+    a = two.pop()
+    b = two.pop()
+    c = two.pop()
+    val = c*4 + b*2 + a*1
+    result.append(val)
 
-    val = a*4 + b*2 + c*1
-    print(val , end = '')
+print(''.join(map(str, reversed(result))))
+
