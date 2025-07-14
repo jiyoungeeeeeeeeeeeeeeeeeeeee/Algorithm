@@ -3,14 +3,14 @@ score = int(input())
 def grading(score):
 
     if score >= 90:
-        print('A')
-    elif score >= 80 and score <= 89:
-        print("B")
-    elif score >= 70 and score <= 79:
-        print("C")
-    elif score >= 60 and score <= 69:
-        print("D")
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
     else :
-        print("F")
+        return "F"
 
-grading(score) 
+print(grading(score))
