@@ -11,5 +11,5 @@ while start * 10 <= n:
     start *= 10
     digits += 1
 
-ans += (n - start + 1 ) * digits 
+ans += (n - start + 1 ) *digits 
 print(ans)
