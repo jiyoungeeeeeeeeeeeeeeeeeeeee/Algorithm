@@ -1,4 +1,3 @@
-score = input().strip()
 grades = {
     'A+': 4.3, 'A0': 4.0, 'A-': 3.7,
     'B+': 3.3, 'B0': 3.0, 'B-': 2.7,
@@ -7,4 +6,4 @@ grades = {
     'F': 0.0
 }
 
-print(grades.get(score))
+print(grades.get(input()))
