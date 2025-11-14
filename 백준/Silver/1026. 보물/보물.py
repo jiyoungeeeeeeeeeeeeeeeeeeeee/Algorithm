@@ -1,13 +1,16 @@
+import sys
 
-n = int(input())
+n = int(sys.stdin.readline())
+a = list(map(int,sys.stdin.readline().split()))
+b = list(map(int,sys.stdin.readline().split()))
 
-a_list = list(map(int, input().split()))
-b_list = list(map(int, input().split()))
+res   = 0
+pairs = [(value,index) for index,value in enumerate(b)]
 
-s = 0
+a.sort()
+pairs.sort(reverse = True)
+
 for i in range(n):
-    s += min(a_list) * max(b_list)
-    a_list.pop(a_list.index(min(a_list)))
-    b_list.pop(b_list.index(max(b_list)))
+    res += a[i] * b[pairs[i][1]]
 
-print(s)
+print(res)
