@@ -1,7 +1,9 @@
-T = int(input())
+import sys
+
+T = int(sys.stdin.readline())
 
 for t in range(T):
-    arr = list(map(int,input().split()))
+    arr = list(map(int,sys.stdin.readline().split()))
 
-    arr.sort()
-    print(arr[-3]) 
+    arr.sort(reverse = True)
+    print(arr[2])  
