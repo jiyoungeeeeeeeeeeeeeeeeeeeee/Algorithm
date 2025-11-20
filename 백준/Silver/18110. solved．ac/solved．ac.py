@@ -14,9 +14,6 @@ opi.sort()
 
 drop = int(n*0.15 + 0.5)
 trimmed = opi[drop:n-drop]
-avg = sum(trimmed) / len(trimmed) 
+avg = int(sum(trimmed) / len(trimmed) + 0.5)
 
-if avg >= 0:
-    print(int(avg + 0.5))
-else:
-    print(int(avg - 0.5))
+print(avg)
