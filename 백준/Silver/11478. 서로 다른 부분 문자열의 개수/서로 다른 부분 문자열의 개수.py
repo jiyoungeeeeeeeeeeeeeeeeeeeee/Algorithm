@@ -1,5 +1,4 @@
 import sys
-from itertools import combinations
 s = sys.stdin.readline().strip()
 
 result = set()
