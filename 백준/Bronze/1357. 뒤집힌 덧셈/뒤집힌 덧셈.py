@@ -1,0 +1,8 @@
+import sys
+
+x,y = sys.stdin.readline().rstrip().split()
+
+ans = list(str(int(x[::-1]) + int(y[::-1])))
+ans.reverse()
+
+print(int(''.join(ans)))
