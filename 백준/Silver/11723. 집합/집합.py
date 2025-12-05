@@ -1,37 +1,37 @@
 import sys
 m = int(sys.stdin.readline())
-s = []
+s = [0] * 21
+out = []
+
 
 for i in range(m):
     command = sys.stdin.readline().split()
-
+    
     if command[0] == 'add':
-        if command[1] in s:
-            continue
-        else:
-            s.append(command[1])
+        x = int(command[1])
+        s[x] = 1
     
-    if command[0] == 'remove':
-        if command[1] in s:
-            s.remove(command[1])
-        else:
-            continue
+    elif command[0] == 'remove':
+        x = int(command[1])
+        s[x] = 0
     
-    if command[0] == 'check':
-        if command[1] in s:
-            print(1 )
-        else:
-            print(0 )
-    
-    if command[0] == 'toggle':
-        if command[1] in s:
-            s.remove(command[1])
-        else:
-            s.append(command[1])
-    
-    if command[0] == 'all':
-        s = [str(i) for i in range(1,21)]
-    
-    if command[0] == 'empty':
-        s.clear()
+    elif command[0] == 'check':
+        x = int(command[1])
 
+        if s[x] == 1:
+            print(1)
+        else:
+            print(0)
+    
+    elif command[0] == 'toggle':
+        x = int(command[1])
+        if s[x] == 1:
+            s[x] = 0  
+        else:
+            s[x] = 1
+    
+    elif command[0] == 'all':
+        s = [0] + [1] * 20
+    
+    elif command[0] == 'empty':
+        s = [0]*21
