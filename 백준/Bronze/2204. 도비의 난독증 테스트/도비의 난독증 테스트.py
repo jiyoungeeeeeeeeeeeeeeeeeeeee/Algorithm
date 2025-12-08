@@ -5,12 +5,10 @@ while True:
     if n == 0:
         break
 
-    lst = []
-    orig = []
+    arr = []
     for i in range(n):
         word = sys.stdin.readline().strip()
-        orig.append(word)
-        lst.append((word.lower(),i))
-    lst.sort()
-    grade = lst[0][1]                        
-    print(orig[grade])
+        arr.append(word)
+    
+    arr.sort(key = str.lower)
+    print(arr[0])
