@@ -1,20 +1,22 @@
 import sys
 from collections import Counter
-
 c = Counter()
-
 while True:
     text = sys.stdin.readline()
-    if not text:
+    if text == '':
         break
-    for t in text:
-        if 'a' <= t <= 'z':    
-            c[t] += 1
-result = []
-max_value = max(c.values())
+    text = text.strip()
+    text = text.replace(' ','')
 
-for k,v in c.items():
-    if v == max_value:
+    c += Counter(text)
+
+cc = sorted(c.items(), key = lambda x:(-x[1],x[0]))
+result = []
+maxx = cc[0][1]
+
+for k,v in cc:
+    if v == maxx:
         result.append(k)
-result.sort()
+
 print(''.join(result))
+    
