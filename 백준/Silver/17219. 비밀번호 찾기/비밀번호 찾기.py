@@ -9,4 +9,4 @@ for i in range(n):
 
 for j in range(m):
     add = sys.stdin.readline().strip()
-    print(lst.get(add))
+    print(lst[add])
