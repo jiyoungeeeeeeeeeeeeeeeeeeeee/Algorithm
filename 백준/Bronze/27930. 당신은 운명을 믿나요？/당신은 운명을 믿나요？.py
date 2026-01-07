@@ -33,10 +33,12 @@ for s in S:
 
     if len(k)>= len(y) and len(k) == 5:
         print(*k , sep='')
+        break
         
     if len(k) <= 4 and len(y) == 6:
         print(*y , sep='')
         break
 
         
-   
+     
+         
