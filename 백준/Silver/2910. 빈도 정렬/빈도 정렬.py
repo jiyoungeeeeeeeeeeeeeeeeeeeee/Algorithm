@@ -1,19 +1,18 @@
 import sys
-from collections import Counter
 
 n,c = map(int,sys.stdin.readline().split())
 arr = list(map(int,sys.stdin.readline().split()))
 
-ac = Counter(arr)
-save = []
-for k,v in ac.items():
-    save.append((k,v))
+ac = {}
 
-save.sort(key = lambda x : (-x[1]))
-result = []
+for i in arr:
+    if i not in ac:
+        ac[i] = 1
+    else:
+        ac[i] += 1
 
-for i,j in save:
+result = sorted(ac.items(), key = lambda x : (-x[1]))
+
+for i,j in result:
     for _ in range(j):
-        result.append(i)
-
-print(*result)
+        print(i, end = ' ')
