@@ -1,19 +1,20 @@
 import sys
 
-t = int(sys.stdin.readline())
+input = sys.stdin.readline
+
+t = int(input())
+out_lines = []
 
 for _ in range(t):
-    n = int(sys.stdin.readline())
-    note1 = set(map(int,sys.stdin.readline().split()))
-    m = int(sys.stdin.readline())
-    note2 = list(map(int,sys.stdin.readline().split()))
+    n = int(input())
+    note1 = set(map(int, input().split()))
+    m = int(input())
+    note2 = list(map(int, input().split()))
 
-    result = []
-
-    for i in note2:
-        if i in note1:
-            result.append('1')
+    for x in note2:
+        if x in note1:
+            out_lines.append("1")
         else:
-            result.append('0')
+            out_lines.append("0")
 
-    sys.stdout.write("\n".join(result) + "\n")
+sys.stdout.write("\n".join(out_lines))
