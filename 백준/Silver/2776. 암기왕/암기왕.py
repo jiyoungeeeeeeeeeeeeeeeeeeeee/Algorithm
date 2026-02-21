@@ -8,9 +8,12 @@ for _ in range(t):
     m = int(sys.stdin.readline())
     note2 = list(map(int,sys.stdin.readline().split()))
 
-    
-    for o in note2:
-        if o in note1:
-            print(1)
+    result = []
+
+    for i in note2:
+        if i in note1:
+            result.append('1')
         else:
-            print(0)    
+            result.append('0')
+
+    sys.stdout.write("\n".join(result) + "\n")
