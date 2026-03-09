@@ -1,24 +1,17 @@
 import sys
 
-t = int(sys.stdin.readline())
+for _ in range(int(sys.stdin.readline())):
+    s = list(sys.stdin.readline().strip())
+    i = len(s) - 2
 
-for _ in range(t):
-    word = list(sys.stdin.readline().strip())
-    n = len(word)
-
-    i = n - 2
-    while i >= 0 and word[i] >= word[i + 1]:
+    while i >= 0 and s[i] >= s[i + 1]:
         i -= 1
 
-    if i == -1:
-        print(''.join(word))
-        continue
+    if i >= 0:
+        j = len(s) - 1
+        while s[j] <= s[i]:
+            j -= 1
+        s[i], s[j] = s[j], s[i]
+        s[i + 1:] = s[i + 1:][::-1]
 
-    j = n - 1
-    while word[j] <= word[i]:
-        j -= 1
-
-    word[i], word[j] = word[j], word[i]
-    word[i + 1:] = reversed(word[i + 1:])
-
-    print(''.join(word))
+    print(''.join(s))
