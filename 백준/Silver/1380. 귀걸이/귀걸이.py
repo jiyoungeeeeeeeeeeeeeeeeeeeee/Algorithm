@@ -21,6 +21,5 @@ while True:
         else:
             lst.remove(a)
     
-    for l in lst:
-        cnt += 1
-        print( cnt ,nord[l])
+    cnt += 1
+    print(cnt, nord[lst[0]])
