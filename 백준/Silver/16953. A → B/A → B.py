@@ -10,8 +10,8 @@ while b > a:
         b = b//2
         cnt += 1 
 
-    elif b % 2 != 0 and str(b)[-1] == '1':
-        b = int(str(b)[:-1])
+    elif b % 10 == 1:
+        b //= 10
         cnt += 1
     else:
         break
