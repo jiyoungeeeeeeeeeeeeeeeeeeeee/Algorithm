@@ -7,14 +7,16 @@ lst.sort()
 r = n-1
 l = 0
 m = abs(lst[0] + lst[-1])
-idx = []
+best_l = l
+best_r = r
 
 while r > l:
     z = lst[r] + lst[l]
 
     if abs(z) < m :
         m = abs(z)
-        idx.append((l,r))
+        best_l = l
+        best_r = r
 
     if z < 0:
         l += 1
@@ -22,8 +24,5 @@ while r > l:
         r -= 1
     elif z == 0:
         break
-        
-if idx:
-    print(lst[idx[-1][0]] , lst[idx[-1][1]] )
-else:
-    print(lst[0] , lst[-1])
+
+print(lst[best_l] , lst[best_r])
