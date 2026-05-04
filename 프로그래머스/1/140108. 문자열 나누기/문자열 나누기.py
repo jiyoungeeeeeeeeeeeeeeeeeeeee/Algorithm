@@ -1,29 +1,24 @@
 def solution(S):
-    cnt1 = 0
-    cnt2 = 0    
-    result = ''
-    save = []
+    same = 0
+    diff = 0    
     x = ''
+    cnt = 0
     
     for s in S:
-        if x == '':
+        if same == 0 and diff == 0:
             x = s
             
         if s == x:
-            cnt1 += 1
+            same += 1
         else:
-            cnt2 += 1
+            diff += 1
         
-        result += s
-        
-        if cnt1 == cnt2:
-            x = ''
-            cnt1 = 0
-            cnt2 = 0
-            save.append(result)
-            result = ''
-        
-    if result != '':
-        save.append(result)
-
-    return len(save)
+        if same == diff:
+            cnt += 1
+            same = 0
+            diff = 0
+    
+    if same != 0 or diff != 0:
+        cnt += 1
+    
+    return cnt
