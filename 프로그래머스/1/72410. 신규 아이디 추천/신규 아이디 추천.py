@@ -1,13 +1,12 @@
 def solution(new_id):
     answer = ''
-    slist = ['~','!','@','#','$','%','^','&','*','(',')','=','+','[','{',']','}',':','?',',',"''",'<','>','/']
     one = new_id.lower()
     two = ''
+    
     for t in one:
-        if t in slist:
-            continue
-        else:
+        if 'a' <= t <= 'z' or t in['-','_','.'] or t.isdigit():
             two += t
+        
     while '..' in two:
         two = two.replace('..','.')
     four = two.strip('.')
