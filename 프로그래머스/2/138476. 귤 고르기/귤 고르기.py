@@ -10,11 +10,11 @@ def solution(k, tangerine):
     
     while k > i :
         i += cnt[idx]
+        answer += 1
+
         if i < k:
             idx += 1
-            answer += 1
         else:
-            answer += 1
             return answer
     
     return answer
