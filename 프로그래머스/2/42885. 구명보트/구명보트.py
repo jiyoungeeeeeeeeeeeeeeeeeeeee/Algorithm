@@ -6,11 +6,7 @@ def solution(people, limit):
     
     while l <= r:
         if people[r] + people[l] <= limit:
-            cnt += 1
-            r -= 1
             l += 1
-        else:
-            cnt += 1
-            r -= 1
-    
+        cnt += 1
+        r -= 1
     return cnt
