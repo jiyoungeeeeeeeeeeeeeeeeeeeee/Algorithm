@@ -1,9 +1,7 @@
 def solution(x):
-    X = x
     answer = 0
+    for i in str(x):
+        answer += int(i)
     
-    while x > 0:
-        answer += x % 10
-        x //= 10
     
-    return X%answer == 0
+    return x % answer == 0
