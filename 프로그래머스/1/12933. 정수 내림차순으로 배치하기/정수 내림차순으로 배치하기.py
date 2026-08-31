@@ -1,6 +1,4 @@
 def solution(n):
-    lst = []
-    for o in str(n):
-        lst.append(o)
+    lst = list(str(n))
     lst.sort(reverse = True)
     return int(''.join(lst))
