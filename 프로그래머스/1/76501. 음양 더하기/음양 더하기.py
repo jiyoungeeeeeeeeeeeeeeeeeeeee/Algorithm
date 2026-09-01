@@ -1,9 +1,9 @@
 def solution(absolutes, signs):
     answer = 123456789
     sol = 0
-    for i in range(len(signs)):
-        if signs[i] == True:
-            sol += absolutes[i]
+    for a,s in zip(absolutes, signs):
+        if s:
+            sol += a
         else:
-            sol -= absolutes[i]
+            sol -= a
     return sol
