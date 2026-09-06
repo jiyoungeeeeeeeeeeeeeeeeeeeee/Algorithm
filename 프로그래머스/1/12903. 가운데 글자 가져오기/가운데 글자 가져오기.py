@@ -1,18 +1,7 @@
 def solution(s):
-    start = 0
-    r = len(s)
-    l = 0
-    long = len(s)
-    
-    if len(s)%2 == 0:
-        start = len(s)//2 
-        return s[start-1] +s[start]
+    mid = len(s) // 2
+
+    if len(s) % 2 == 0:
+        return s[mid-1:mid+1]
     else:
-        while long > 1:
-            r -= 1
-            long -= 1
-            
-            if long > 1:
-                l += 1
-                long -= 1
-        return s[l]
+        return s[mid]
