@@ -1,20 +1,26 @@
 def solution(n):
-    idx = 1 
+    lst = [i for i in range(1, n + 1)]
+
+    left = 0
+    right = 0
+    total = 0
     cnt = 0
 
-    while idx  <= n:
-        total = 0   
+    while right <= len(lst):
+        if total < n:
+            if right == len(lst):
+                break
 
-        for i in range(idx , n+1):
-            total += i
-            
-            if total > n:
-                break
-                
-            elif total == n:
-                cnt += 1
-                break
-                
-        idx += 1
-            
-    return cnt 
+            total += lst[right]
+            right += 1
+
+        elif total > n:
+            total -= lst[left]
+            left += 1
+
+        else:
+            cnt += 1
+            total -= lst[left]
+            left += 1
+
+    return cnt
