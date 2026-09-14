@@ -1,26 +1,23 @@
 def solution(n):
-    lst = [i for i in range(1, n + 1)]
-
-    left = 0
-    right = 0
-    total = 0
+    
+    left = 1
+    right = 1
+    total = 1
     cnt = 0
 
-    while right <= len(lst):
-        if total < n:
-            if right == len(lst):
-                break
+    while left <= n and right <= n:
 
-            total += lst[right]
-            right += 1
-
-        elif total > n:
-            total -= lst[left]
-            left += 1
-
-        else:
+        if total == n :
             cnt += 1
-            total -= lst[left]
+            total -= left
             left += 1
-
+        
+        elif total < n :
+            right += 1
+            total += right
+            
+        else:
+            total -= left
+            left += 1
+            
     return cnt
