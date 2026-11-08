@@ -1,24 +1,22 @@
 def solution(prices):
     answer = []
-    idx = 0
+    idx = 0 # 현재 idx 
+    idx2 = idx + 1 
     
-    while idx < len(prices):
+    while idx < len(prices): # 바깥 while - 전체 prices 순회
         cnt = 0
-        idx2 = idx+1
-            
-        while idx2 < len(prices): 
-            cnt += 1
-            if prices[idx] <= prices[idx2]:
-                idx2 += 1      
-
-            else:
-                break # 내부 while 바로 종료 후 아래 바깥 while문에서 저장
-                
-                
-        # idx부터 끝까지 전부 idx보다 같거나 큰 경우 저장하기
-        answer.append(cnt)
-        idx += 1
         
-
-
-    return answer 
+        while idx2 < len(prices): # 내부 while - 상승되는 동안 순회
+            cnt += 1
+            
+            if prices[idx] <= prices[idx2]:
+                idx2 += 1
+            else:
+                # 가격 떨어지면 idx 한 칸 옮긴 후, idx2도 idx에 초기화
+                break
+        idx += 1            
+        idx2 = idx + 1
+                
+        answer.append(cnt)
+                
+    return answer  
