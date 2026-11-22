@@ -10,17 +10,14 @@ def solution(a):
         save = []
         state = True
 
-        for i in range(len(a)):
-            if x[i] == '[':
-                save.append(x[i])
-            elif x[i] == '(':
-                save.append(x[i])
-            elif x[i] == '{':
-                save.append(x[i])
+        # for i in range(len(a)):
+        i = 0
+        while i < len(s):
                 
-            elif x[i] == ']':
+            if x[i] == ']':
                 if save and save[-1] == '[':
                     save.pop()
+                    
                 else:
                     state = False
                     break
@@ -37,6 +34,10 @@ def solution(a):
                 else:
                     state = False
                     break
+            else:
+                save.append(x[i])
+                
+            i += 1            
                     
         if state == True and not save:
             cnt += 1
